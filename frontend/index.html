@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stem Splitter</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Stem Splitter</h1>
+    <p>Upload a song, get vocals, drums, bass, guitar, piano and other — all separated.</p>
+  </header>
+
+  <section id="drop" class="dropzone">
+    <input id="file-input" type="file" accept="audio/*" hidden />
+    <div class="dropzone-inner">
+      <div class="icon">🎵</div>
+      <p><strong>Drop an audio file here</strong> or click to browse</p>
+      <p class="hint">MP3, WAV, FLAC, M4A</p>
+    </div>
+  </section>
+
+  <section id="progress-section" class="card hidden">
+    <div class="progress-row">
+      <span id="progress-label">Uploading…</span>
+      <span id="progress-pct">0%</span>
+    </div>
+    <div class="progress-bar">
+      <div id="progress-fill" class="progress-fill"></div>
+    </div>
+    <p class="hint">Separation runs locally and can take a few minutes on CPU.</p>
+  </section>
+
+  <section id="error-section" class="card error hidden"></section>
+
+  <section id="results-section" class="card hidden">
+    <div class="results-header">
+      <h2 id="results-title">Stems</h2>
+      <div class="header-actions">
+        <button id="download-mix" class="btn primary">Download Mix (.mp3)</button>
+        <button id="download-all" class="btn ghost-accent">Download All (.zip)</button>
+      </div>
+    </div>
+
+    <p id="loading-waveforms" class="hint">Loading waveforms…</p>
+
+    <div id="transport" class="transport hidden">
+      <button id="play-btn" class="transport-btn" title="Play / Pause (Space)">▶</button>
+      <button id="stop-btn" class="transport-btn" title="Stop">■</button>
+      <span id="time-display" class="time-display">0:00 / 0:00</span>
+      <label class="loop-toggle">
+        <input id="loop-toggle" type="checkbox" /> Loop
+      </label>
+      <div class="master-vol">
+        <span class="hint">Master</span>
+        <input id="master-volume" type="range" min="0" max="1.5" step="0.01" value="1" />
+      </div>
+      <button id="reset-mix-btn" class="btn small ghost">Reset Mix</button>
+    </div>
+
+    <div id="master-seek" class="master-seek hidden">
+      <div id="master-seek-fill" class="master-seek-fill"></div>
+    </div>
+
+    <div id="tracks" class="tracks"></div>
+
+    <button id="reset-btn" class="btn ghost">Split another song</button>
+  </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
