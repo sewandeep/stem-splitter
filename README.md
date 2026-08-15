@@ -3,8 +3,8 @@ title: Stem Splitter
 emoji: 🎧
 colorFrom: purple
 colorTo: blue
-sdk: docker
-app_port: 7860
+sdk: gradio
+app_file: app.py
 pinned: false
 ---
 
